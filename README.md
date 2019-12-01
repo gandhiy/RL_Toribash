@@ -31,7 +31,7 @@ This will install all of the dependencies used in the project.
 ### Downloading and Processing Matches
 
 #### Expert Matches
-Inside of [data](https://git.cs.colorado.edu/yaga6341/csci-4831-7000/blob/master/project/data) is a zip file of all of the replay matches. Unzip the files and place them inside of the replay folder under the torille project. On a Mac OS with, this can be found at /anaconda3/lib/python3.6/site-packages/torille/toribash/replay
+Inside of [data](data/) is a zip file of all of the replay matches. Unzip the files and place them inside of the replay folder under the torille project. On a Mac OS with, this can be found at /anaconda3/lib/python3.6/site-packages/torille/toribash/replay
 
 To check if the replays are loaded correctly please run 
 ```bash
@@ -45,7 +45,7 @@ Finally, to process all replays, run
 python load_all_replays.py
 ```
 
-Now there should be two csv files representing information about player 1 and player 2 for all of the replays listed in the replays folder mentioned above. Visualizing this data can be difficult. The csv files can be many 10's of thousands of lines with around 150 columns for both player 1 and player 2, so there are a few examples in the [notebook folder](https://git.cs.colorado.edu/yaga6341/csci-4831-7000/tree/master/project/notebooks). 
+Now there should be two csv files representing information about player 1 and player 2 for all of the replays listed in the replays folder mentioned above. Visualizing this data can be difficult. The csv files can be many 10's of thousands of lines with around 150 columns for both player 1 and player 2, so there are a few examples in the [notebook folder](notebooks/). 
 
 #### Hidden Markov Model Training
 
