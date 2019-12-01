@@ -1,0 +1,20 @@
+env_dict: {
+  env_name: None,
+  timesteps: 500000,
+  reward: 2,
+  
+  reward_kwargs: {
+    c0: 0.002,
+    c1: 0.01,
+    phi: 'data/testing_building_phi_reward_weights.pkl'
+  },
+
+  left_leg_model: /Users/yashgandhi/Documents/Fall_2019/csci-4831-7000/project/models/left_leg.pkl,
+  right_leg_model: /Users/yashgandhi/Documents/Fall_2019/csci-4831-7000/project/models/right_leg.pkl,
+  left_arm_model: /Users/yashgandhi/Documents/Fall_2019/csci-4831-7000/project/models/left_arm.pkl,
+  right_arm_model: /Users/yashgandhi/Documents/Fall_2019/csci-4831-7000/project/models/right_arm.pkl,
+  upper_body_model: /Users/yashgandhi/Documents/Fall_2019/csci-4831-7000/project/models/upper_body.pkl,
+  lower_body_model: /Users/yashgandhi/Documents/Fall_2019/csci-4831-7000/project/models/lower_body.pkl,
+
+  savename: hierarchy_reward_2
+}

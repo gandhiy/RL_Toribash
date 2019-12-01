@@ -1,0 +1,23 @@
+env_dict: {
+  player_1_csv: 'data/player1_state_info.csv',
+  player_2_csv: 'data/player2_state_info.csv',
+  timesteps: 500000,
+  reward: 3,
+
+  reward_kwargs: {
+    c0: 0.004,
+    c1: 0.01,
+    c2: 5.0,
+    phi: 'data/testing_building_phi_reward_weights.pkl'
+  },
+
+  action_kwargs: {
+    type: 'continuous',
+    low: 0,
+    high: 5,
+    num_actions: 30,
+    method: 'random'
+  },
+
+  savename: 'cont_curriculum_reward'
+}

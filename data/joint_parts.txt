@@ -1,0 +1,22 @@
+0:neck
+1:chest
+2:lumbar
+3:abs
+4:right pec
+5:right shoulder
+6:right elbow
+7:left pec
+8:left shoulder
+9:left elbow
+10:right wrist
+11:left wrist
+12:right glute
+13:left glute
+14:right hip
+15:left hip
+16:right knee
+17:left knee
+18:right ankle
+19:left ankle
+20:left grip
+21:right grip
