@@ -3,7 +3,7 @@ Trained Policy                        |  Human Player
 :------------------------:|:------------------------:
 <img align="center" src=images/policy_gif.gif alt="RL policy trained agent" width=250 height=250 /> | <img  align="center" src=images/replay.gif alt="Human agent" width=250 height=250 />
 
-An example of some runs can be found [here](https://www.youtube.com/watch?v=9t0yV3qpQZY&feature=youtu.be)
+An example of some runs can be found [here](https://www.youtube.com/watch?v=9t0yV3qpQZY&feature=youtu.be) and the final paper for this project can be found [here](docs/paper.pdf)
 
 Content:
 
