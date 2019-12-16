@@ -1,4 +1,6 @@
+import os
 import pandas as pd
+
 
 def _fix_grips(df):
 
@@ -21,12 +23,12 @@ def create_dictionary_mapper(limbs=True):
         ret (dict): the dictionary specified by limbs
     
     """
-
+    data_path = os.path.join(os.path.dirname(__file__), '../data/')
     # using explicit paths because of some weird errors when loading environment in notebook
     if(limbs):
-        path = '/Users/yashgandhi/Documents/Fall_2019/csci-4831-7000/project/data/body_parts.txt'
+        path = os.path.join(data_path, 'body_parts.txt')
     else:
-        path = '/Users/yashgandhi/Documents/Fall_2019/csci-4831-7000/project/data/joint_parts.txt'
+        path = os.path.join(data_path, 'joint_parts.txt')
     ret = {}
     with open(path, 'r') as f:
         for line in f:
@@ -109,3 +111,7 @@ def process_state(state, limbs, joints):
         )
     return p1_row, p2_row
 
+
+
+if __name__ == "__main__":
+    print(create_dictionary_mapper(True))
