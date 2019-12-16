@@ -1,8 +1,16 @@
+"""
+Trains a ridge regression algorithm on 
+the given state information for both 
+player 1 and player 2. 
+"""
+
 import pickle
 import numpy as np
 import pandas as pd 
 
+
 from os.path import join
+from argparse import ArgumentParser
 from utils.tools import load_csv
 from sklearn.linear_model import Ridge
 from sklearn.model_selection import train_test_split
@@ -50,7 +58,17 @@ def train_ridge(player1_csv, player2_csv, save_to):
     print("Score: ", clf.score(X_test, y_test), "with alpha: {}".format(6.5))
 
     # Save the weights, they'll be used later for testing the trajectories.
-    with open(save_to+'_reward_weights.pkl', 'wb') as f:
+    with open(save_to+'reward_weights.pkl', 'wb') as f:
         pickle.dump(clf.coef_, f)
     
     return clf.coef_
+
+
+if __name__ == "__main__":
+    parser = ArgumentParser()
+    parser.add_argument("-s", "--savepath", help='path to save the weights', default='data/', required=True)
+    parser.add_argument("-p", "--player1", help="path to player 1 csv ", required=True)
+    parser.add_argument("-q", "--player2", help='path to player 2 csv', required=True)
+    args = parser.parse_args()
+
+    train_ridge('../data/player1_state_info.csv', '../data/player2_state_info.csv', args.savepath)

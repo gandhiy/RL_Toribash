@@ -63,7 +63,7 @@ class visuals:
         else:
             raise ValueError("matchIdx must be either an int or string")
 
-        self.df[self.df['match'] == self.matchName]
+        self.match_df = self.df[self.df['match'] == self.matchName]
 
 
     @property
@@ -129,7 +129,7 @@ class visuals:
          list, make sure to set viz.actions = True beforehand
         """
         ts = self.match_df[self.actions]
-        return sns.heatmap(ts.transpose(), cbar_kws=dict(ticks=[0,1,2,3,4]))
+        return sns.heatmap(ts.transpose(), cbar_kws=dict(ticks=[0,1,2,3,4]), cmap='viridis')
 
     def watch_replay(self):
         """

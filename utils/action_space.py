@@ -32,12 +32,14 @@ class action_space:
         self.vis = visuals(csv_path)
         self.vis.actions = True
         
-    def frequency_builder(self, number_actions, **kwargs):
+    def frequency_builder(self, number_actions, controllable=constants.NUM_CONTROLLABLES, **kwargs):
         """
          Return the N most frequent actions 
         """
         ret = {}
         actions = np.array(self.df[self.vis.actions])
+        if(type(controllable) is list):
+            actions = actions[:, controllable]
         # this lets us separate the unique actions from their repeated calls
         u, idx = np.unique(actions, axis=0, return_inverse=True)
         # build a counter on the indices
@@ -49,7 +51,7 @@ class action_space:
             counter += 1
         return ret
 
-    def temporal_frequency_builder(self, number_actions, **kwargs):
+    def temporal_frequency_builder(self, number_actions, controllable=constants.NUM_CONTROLLABLES, **kwargs):
         """
          Return the N most frequent actions weighted by how close to the 
          half way-point of the game they were played at (i.e. a gaussian centered 
@@ -58,6 +60,9 @@ class action_space:
         ret = {}
         # begin similarly to frequency builder
         actions = np.array(self.df[self.vis.actions])
+        if(type(controllable) is list):
+            actions = actions[:, controllable]
+
         _,idx = np.unique(actions, axis=0, return_inverse=True)
         c = Counter(idx)
 
@@ -85,17 +90,25 @@ class action_space:
         sorted_df = tmp.sort_values('weighted_freq', ascending=True)
         # remove duplicate actions again
         unique_sorted_df = sorted_df[self.vis.actions].drop_duplicates(subset=self.vis.actions)
+        new_actions = np.array(unique_sorted_df)
+        if(type(controllable) is list):
+            new_actions = new_actions[:, controllable]
+
         for i in range(number_actions):
-            ret[i] = list(unique_sorted_df.iloc[i].astype(int))
+            ret[i] = list(new_actions[i].astype(int))
         return ret
         
-    def random_actions(self, number_actions, **kwargs):
+    def random_actions(self, number_actions, controllable=constants.NUM_CONTROLLABLES, **kwargs):
         """
          Return N random actions
         """
         ret = {}
+        if(type(controllable) is list):
+            l = len(controllable)
+        else:
+            l = 22
         for i in range(number_actions):
-            ret[i] = list(np.random.randint(1,5,size=(22,)))
+            ret[i] = list(np.random.randint(1,5,size=(l,)))
         return ret
 
 def bin_val(x,y, T, k=21):
