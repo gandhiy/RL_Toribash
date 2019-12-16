@@ -1,0 +1,15 @@
+# ignore
+*.ipynb_checkpoints
+*.pyc
+*.vscode
+*.DS_Store
+*.pkl
+*.mov
+*.png
+*.jpg
+*.pptx
+*.csv
+
+# if a file or folder has tmp in it, ignore
+*tmp*
+tensorboard
