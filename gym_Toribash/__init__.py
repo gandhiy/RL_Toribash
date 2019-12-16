@@ -107,10 +107,104 @@ register(
 )
 
 # Hierarchy Model
+# Majors
 register(
     id='Toribash-MajorEnv-v0',
     entry_point='gym_Toribash.envs:MajorActions',
     kwargs={
         'reward_func': 0
+    }
+)
+
+register(
+    id='Toribash-MajorEnv-v1',
+    entry_point='gym_Toribash.envs:MajorActions',
+    kwargs={
+        'reward_func': 1
+    }
+)
+
+register(
+    id='Toribash-MajorEnv-v2',
+    entry_point='gym_Toribash.envs:MajorActions',
+    kwargs={
+        'reward_func': 2
+    }
+)
+
+
+register(
+    id='Toribash-MajorEnv-v3',
+    entry_point='gym_Toribash.envs:MajorActions',
+    kwargs={
+        'reward_func': 3
+    }
+)
+
+
+#Minors
+register(
+    id='Toribash-MinorEnv-v0',
+    entry_point='gym_Toribash.envs:MinorActions',
+    kwargs={
+        'reward_func': 0
+    }
+)
+
+register(
+    id='Toribash-MinorEnv-v1',
+    entry_point='gym_Toribash.envs:MinorActions',
+    kwargs={
+        'reward_func': 1
+    }
+)
+
+register(
+    id='Toribash-MinorEnv-v2',
+    entry_point='gym_Toribash.envs:MinorActions',
+    kwargs={
+        'reward_func': 2
+    }
+)
+
+register(
+    id='Toribash-MinorEnv-v3',
+    entry_point='gym_Toribash.envs:MinorActions',
+    kwargs={
+        'reward_func': 3
+    }
+)
+
+
+#Details
+register(
+    id='Toribash-DetailEnv-v0',
+    entry_point='gym_Toribash.envs:Details',
+    kwargs={
+        'reward_func': 0
+    }
+)
+
+register(
+    id='Toribash-DetailEnv-v1',
+    entry_point='gym_Toribash.envs:Details',
+    kwargs={
+        'reward_func': 1
+    }
+)
+
+register(
+    id='Toribash-DetailEnv-v2',
+    entry_point='gym_Toribash.envs:Details',
+    kwargs={
+        'reward_func': 2
+    }
+)
+
+register(
+    id='Toribash-DetailEnv-v3',
+    entry_point='gym_Toribash.envs:Details',
+    kwargs={
+        'reward_func': 3
     }
 )

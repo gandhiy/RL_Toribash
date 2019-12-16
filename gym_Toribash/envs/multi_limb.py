@@ -52,13 +52,14 @@ class MultiLimbToribash(ToriEnv):
         """
         super().__init__(**kwargs)
 
-        self.reward_function_dict = {
-         0: score_only_reward,
-         1: transition_constrained_reward,
-         2: linreg_reward
+        self.reward_func_dict = {
+            0: transition_constrained_reward,
+            1: linreg_reward,
+            2: dist_reward,
+            3: curriculum_reward
         }
         self.reward_val = kwargs['reward_func']
-        self.reward_function = self.reward_function_dict[self.reward_val]
+        self.reward_function = self.reward_func_dict[self.reward_val]
         self.limbs_dict = create_dictionary_mapper(True)
         self.joint_dict = create_dictionary_mapper(False)
         self.reward_kwargs = {}
@@ -84,12 +85,14 @@ class MultiLimbToribash(ToriEnv):
          to a list to be used by other methods. 
         """
         self.components = []
-        self.components.append(subModel(kwargs['left_leg_model'], [15,17,19]))
-        self.components.append(subModel(kwargs['right_leg_model'], [14,16,18]))
-        self.components.append(subModel(kwargs['left_arm_model'], [8,9,11,21]))
-        self.components.append(subModel(kwargs['right_arm_model'], [5,6,10,20]))
-        self.components.append(subModel(kwargs['upper_body_model'], [0,1,4,7]))
-        self.components.append(subModel(kwargs['lower_body_model'], [2,3,12,13]))
+        
+        models = kwargs['limb_models']
+        self.components.append(subModel(models['left_leg_model'], [15,17,19]))
+        self.components.append(subModel(models['right_leg_model'], [14,16,18]))
+        self.components.append(subModel(models['left_arm_model'], [8,9,11,21]))
+        self.components.append(subModel(models['right_arm_model'], [5,6,10,20]))
+        self.components.append(subModel(models['upper_body_model'], [0,1,4,7]))
+        self.components.append(subModel(models['lower_body_model'], [2,3,12,13]))
     
     def init(self, **kwargs):
         """
@@ -204,7 +207,7 @@ class MultiLimbToribash(ToriEnv):
             action = deepcopy(action)
             action = self._preprocess_action(action)
             self.game.make_actions(action)
-            self.reward_kwargs['iterations'] += 1 # keep count of the learning iterations
+            self.reward_kwargs['iteration'] += 1 # keep count of the learning iterations
 
             state, terminal = self.game.get_state()
             self.reward_kwargs['terminal'] = terminal

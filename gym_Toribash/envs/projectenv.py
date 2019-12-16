@@ -29,9 +29,9 @@ class SingleAgentToribash(ToriEnv):
         super().__init__(**kwargs)
 
         self.reward_func_dict = {
-            0: score_only_reward,
-            1: transition_constrained_reward,
-            2: linreg_reward,
+            0: transition_constrained_reward,
+            1: linreg_reward,
+            2: dist_reward,
             3: curriculum_reward
         }
         self.reward_val = kwargs['reward_func']
