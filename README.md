@@ -7,13 +7,13 @@ An example of some runs can be found [here](https://www.youtube.com/watch?v=9t0y
 
 Content:
 
-* [Toribash](##what-is-toribash?)
-* [Torille](##what-is-torille?)
-* [Getting Started](##getting-started)
-* [Training](##training-a-model)
-* [Visualizing](##visualizing-a-model) 
-* [Example](###example)
-* [Experiments](##experiments)
+* [Toribash](#what-is-toribash?)
+* [Torille](#what-is-torille?)
+* [Getting Started](#getting-started)
+* [Training](#training-a-model)
+* [Visualizing](#visualizing-a-model) 
+* [Example](#example)
+* [Experiments](#experiments)
 
 
 ## What is Toribash?
