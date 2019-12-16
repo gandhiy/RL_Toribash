@@ -115,7 +115,7 @@ provided in the notebook itself.
   configs = "../models/{}/configs_dict.pkl".format(model_name)
   model = "../models/{}/best_model.pkl".format(model_name)
 ```
-**with **
+**with**
 ```python 
 configs = "../data/example_dict.pkl"
 model = "../data/example_model.pkl"
