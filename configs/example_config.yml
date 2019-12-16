@@ -1,0 +1,17 @@
+env_dict: {
+  agent: single, 
+  timesteps: 50000,
+  reward: 0,
+
+  reward_kwargs: {
+    c0: 0.5,
+    c1: 0.5,
+    c2: 1.0,
+  },
+
+  action_kwargs: {
+    type: 'full',
+  },
+
+  savename: 'Multi_Discrete'
+}
