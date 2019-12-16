@@ -14,6 +14,7 @@ Content:
 * [Visualizing](#visualizing-a-model) 
 * [Example](#example)
 * [Experiments](#experiments)
+* [TODO](#todo)
 
 
 ## What is Toribash?
@@ -140,7 +141,12 @@ python test/metrics.py
 ```
 
 
+## TODO
 
+- [ ] Consolidate some notebooks
+- [ ] Better code organization
+- [ ] Better runs
+- [ ] Better video
 
 
 
